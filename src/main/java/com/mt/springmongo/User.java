@@ -22,12 +22,16 @@ public class User implements Serializable {
 	@Id
     private String id;
     private String firstName;
+    private String middleName;
     private String lastName;
+    private String contactNo;
     private String email;
 
     public User(String firstName, String lastName, String email) {
         this.firstName = firstName;
+	this.middleName = middleName;
         this.lastName = lastName;
+	this.contactNo = contactNo;
         this.email = email;
     }
 
@@ -42,9 +46,14 @@ public class User implements Serializable {
     public String getFirstName() {
         return firstName;
     }
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+   public void setId(String id) {
+	return middleName; 	   
+    }
+    public void setmiddleName(String middleName) {
+        this.middleName = middleName;
     }
 
     public String getLastName() {
@@ -53,6 +62,14 @@ public class User implements Serializable {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+     }
+
+    public String getContactNo() {
+        return ContactNo;
+    }
+
+    public void setContactNo(String ContactNo) {
+        this.ContactNo = ContactNo;
     }
 
     public String getEmail() {
@@ -70,12 +87,14 @@ public class User implements Serializable {
         User user = (User) o;
         return Objects.equals(id, user.id) &&
                 Objects.equals(firstName, user.firstName) &&
+		Objects.equals(middleName, user.middleName) &&
                 Objects.equals(lastName, user.lastName) &&
+		Objects.equals(ContactNo, user.ContactNo) &&
                 Objects.equals(email, user.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, email);
+        return Objects.hash(id, firstName,middleName, lastName, ContactNo, email);
     }
 }
