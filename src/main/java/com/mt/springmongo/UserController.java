@@ -25,11 +25,13 @@ public class UserController {
 
     @PostMapping(value = "/save")
     public String save(@RequestParam("firstName") String firstName,
+                       @RequestParam("firstName") String middleName,
                        @RequestParam("lastName") String lastName,
+                       @RequestParam("firstName") String contactNo,
                        @RequestParam("email") String email) {
 
     	logger.info("Creating user name: "+firstName);
-        User user = new User(firstName, lastName, email);
+        User user = new User(firstName, middleName, lastName, contactNo, email);
         userRepository.save(user);
 
         return "redirect:/";
